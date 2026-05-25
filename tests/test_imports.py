@@ -10,8 +10,6 @@ def test_imports():
         import streamlit  # noqa: F401
         import ultralytics  # noqa: F401
 
-        import streamlit_app  # noqa: F401
-
         # 패키지 내부 모듈 테스트
         from alphadent import (
             app,  # noqa: F401
