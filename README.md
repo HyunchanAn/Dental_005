@@ -47,3 +47,11 @@ Simply connect the repository to your Streamlit Cloud account to host the applic
 
 The system utilizes YOLOv8 weights (e.g., `weights/yolov8x_AlphaDent_9_classes_960px.pt`) pre-loaded into the global context for low-latency inference. 
 Prediction outputs are intercepted and converted into Plotly scatter plots (polygons) overlaid on the original image, allowing dynamic interaction.
+
+## Acknowledgements
+
+This project builds upon the original **AlphaDent** research and dataset. We sincerely thank the original authors and contributors for providing the foundational models and data:
+- **Original Repository**: [ZFTurbo/AlphaDent](https://github.com/ZFTurbo/AlphaDent)
+- **Dataset**: [AlphaDent Dataset (Kaggle)](https://www.kaggle.com/competitions/alpha-dent/data)
+
+The codebase has been refactored, packaged, and extended with an interactive Streamlit web interface, but the core YOLOv8 weights and raw dataset originate from the referenced repository.
