@@ -3,12 +3,12 @@ import pytest
 
 def test_imports():
     try:
-        import cv2
-        import numpy
-        import PIL
-        import plotly
-        import streamlit
-        import ultralytics
+        import cv2  # noqa: F401
+        import numpy  # noqa: F401
+        import PIL  # noqa: F401
+        import plotly  # noqa: F401
+        import streamlit  # noqa: F401
+        import ultralytics  # noqa: F401
 
         # 패키지 내부 모듈 테스트
         from alphadent import app  # noqa: F401
