@@ -23,3 +23,8 @@
 - GitHub Actions (python-ci.yml) 파이프라인 추가.
 - docs/ARCHITECTURE.md 구조화 및 다이어그램 추가.
 - 재현성을 위해 README.md에 가중치 파일 구글 드라이브 링크 업데이트.
+
+[2026-05-25] 패키지화 및 도커라이징 완료
+- CI/CD 린팅 에러 자동 픽스 및 제외 폴더 적용.
+- src/alphadent/ 기반의 정식 파이썬 라이브러리 구조로 개편 완료.
+- Dockerfile 및 .dockerignore 작성하여 배포 준비 마침.

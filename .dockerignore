@@ -1,0 +1,12 @@
+data/
+*.pt
+*.jpg
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.git/
+.github/
+.streamlit/
+development_log.txt
+*.md

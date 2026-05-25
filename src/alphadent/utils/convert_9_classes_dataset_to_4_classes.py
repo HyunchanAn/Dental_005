@@ -1,10 +1,9 @@
 # coding: utf-8
 __author__ = 'Roman Solovyev (ZFTurbo), AlphaChip'
 
-import glob
 import argparse
+import glob
 import shutil
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

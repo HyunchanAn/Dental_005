@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/alphadent/__init__.py
+src/alphadent/app.py
+src/alphadent/benchmark.py
+src/alphadent/inference.py
+src/alphadent/train.py
+src/alphadent/valid.py
+src/alphadent/version.py
+src/alphadent.egg-info/PKG-INFO
+src/alphadent.egg-info/SOURCES.txt
+src/alphadent.egg-info/dependency_links.txt
+src/alphadent.egg-info/requires.txt
+src/alphadent.egg-info/top_level.txt
+src/alphadent/utils/convert_9_classes_dataset_to_4_classes.py
+src/alphadent/utils/draw_annotations.py
+tests/test_imports.py
