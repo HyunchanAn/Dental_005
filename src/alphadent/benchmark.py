@@ -32,10 +32,10 @@ if __name__ == "__main__":
     test_image = "data/raw/images/test/test_000.jpg"
 
     # 9-class model
-    latency_9 = run_benchmark("yolov8x_AlphaDent_9_classes_960px.pt", test_image, "output_marked_9_classes.jpg")
+    latency_9 = run_benchmark("weights/yolov8x_AlphaDent_9_classes_960px.pt", test_image, "sample_outputs/output_marked_9_classes.jpg")
 
     # 4-class model
-    latency_4 = run_benchmark("yolov8x_AlphaDent_4_classes_960px.pt", test_image, "output_marked_4_classes.jpg")
+    latency_4 = run_benchmark("weights/yolov8x_AlphaDent_4_classes_960px.pt", test_image, "sample_outputs/output_marked_4_classes.jpg")
 
     with open("development_log.txt", "a", encoding="utf-8") as f:
         f.write("\n[Benchmark Results]\n")

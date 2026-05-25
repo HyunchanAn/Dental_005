@@ -11,7 +11,7 @@ app = FastAPI(title="Caries Detection API")
 
 # 전역 컨텍스트에 모델 로드 (Inference 속도 최적화)
 # 여기서는 9클래스 960px 모델을 기본으로 사용합니다.
-weights_path = "yolov8x_AlphaDent_9_classes_960px.pt"
+weights_path = "weights/yolov8x_AlphaDent_9_classes_960px.pt"
 if os.path.exists(weights_path):
     model = YOLO(weights_path)
 else:

@@ -31,9 +31,9 @@ conf_threshold = st.sidebar.slider("신뢰도 임계값 (Confidence)", min_value
 
 # 가중치 파일 결정
 if "4-Class" in model_type:
-    model_path = "yolov8x_AlphaDent_4_classes_960px.pt"
+    model_path = "weights/yolov8x_AlphaDent_4_classes_960px.pt"
 else:
-    model_path = "yolov8x_AlphaDent_9_classes_960px.pt"
+    model_path = "weights/yolov8x_AlphaDent_9_classes_960px.pt"
 
 model = load_model(model_path)
 
