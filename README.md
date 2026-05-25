@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ### 2. Download Model Weights
 To prevent the repository from bloating, large files such as the dataset (`data/`), model weights (`*.pt`), and output images (`*.jpg`) are excluded from version control via `.gitignore`.
 
-To reproduce the project and run the inference locally, please download the required `.pt` weight files from the provided Google Drive link and place them in the root directory of the project:
+To reproduce the project and run the inference locally, please download the required `.pt` weight files from the provided Google Drive link and place them in the `weights/` directory of the project:
 - [Google Drive: AlphaDent Model Weights](https://drive.google.com/drive/folders/1KnM2z4ssN3THdYu2qqrDZ1JkbAmBbeiw?usp=sharing)
 
 ## Usage
@@ -45,5 +45,5 @@ Simply connect the repository to your Streamlit Cloud account to host the applic
 
 ## Architecture & Logic
 
-The system utilizes YOLOv8 weights (e.g., `yolov8x_AlphaDent_9_classes_960px.pt`) pre-loaded into the global context for low-latency inference. 
+The system utilizes YOLOv8 weights (e.g., `weights/yolov8x_AlphaDent_9_classes_960px.pt`) pre-loaded into the global context for low-latency inference. 
 Prediction outputs are intercepted and converted into Plotly scatter plots (polygons) overlaid on the original image, allowing dynamic interaction.

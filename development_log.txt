@@ -28,3 +28,9 @@
 - CI/CD 린팅 에러 자동 픽스 및 제외 폴더 적용.
 - src/alphadent/ 기반의 정식 파이썬 라이브러리 구조로 개편 완료.
 - Dockerfile 및 .dockerignore 작성하여 배포 준비 마침.
+
+[2026-05-25] 루트 디렉터리 정리 및 폴더 구조화
+- 루트 경로에 존재하던 대용량 가중치 파일(*.pt)들을 weights/ 디렉터리로 이동.
+- 분석 결과 마킹 이미지(*.jpg)들을 sample_outputs/ 디렉터리로 이동.
+- app.py, streamlit_app.py, benchmark.py 파일 내 파일 경로 업데이트 완료.
+- README.md의 모델 다운로드 안내 경로 수정.
