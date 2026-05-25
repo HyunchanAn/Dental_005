@@ -11,8 +11,9 @@ AlphaDent AI is an automated dental caries detection and diagnosis assistance sy
 - Advanced Visualization: Utilizes Plotly to render interactive, hoverable segmentation masks directly on the browser without occluding the original clinical photos.
 - Dual Model Support: Switch seamlessly between a simplified 4-class model and a detailed 9-class diagnostic model.
 
-## Installation
+## Installation & Reproducibility
 
+### 1. Repository Clone
 Clone the repository and install the required dependencies:
 
 ```bash
@@ -20,6 +21,12 @@ git clone https://github.com/USERNAME/AlphaDent.git
 cd AlphaDent
 pip install -r requirements.txt
 ```
+
+### 2. Download Model Weights
+To prevent the repository from bloating, large files such as the dataset (`data/`), model weights (`*.pt`), and output images (`*.jpg`) are excluded from version control via `.gitignore`.
+
+To reproduce the project and run the inference locally, please download the required `.pt` weight files from the provided Google Drive link and place them in the root directory of the project:
+- [Google Drive: AlphaDent Model Weights](https://drive.google.com/drive/folders/1KnM2z4ssN3THdYu2qqrDZ1JkbAmBbeiw?usp=sharing)
 
 ## Usage
 

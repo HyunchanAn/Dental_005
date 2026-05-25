@@ -1,0 +1,35 @@
+[project]
+name = "alphadent"
+version = "1.0.0"
+description = "AI-based dental caries detection and diagnosis assistance system using YOLOv8."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ultralytics",
+    "torch",
+    "streamlit",
+    "opencv-python-headless",
+    "Pillow",
+    "plotly",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = []
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
