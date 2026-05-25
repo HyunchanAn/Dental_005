@@ -11,10 +11,11 @@ if __name__ == '__main__':
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
 
-import torch
 import argparse
-import os
 import glob
+import os
+
+import torch
 from ultralytics import YOLO
 
 

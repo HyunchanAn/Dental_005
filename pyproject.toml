@@ -16,6 +16,7 @@ dependencies = [
 [tool.ruff]
 line-length = 120
 target-version = "py312"
+exclude = ["data", ".pytest_cache", "__pycache__"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I"]
@@ -33,3 +34,4 @@ line_length = 120
 python_version = "3.12"
 strict = true
 ignore_missing_imports = true
+exclude = ["data/", "\\.pytest_cache/"]

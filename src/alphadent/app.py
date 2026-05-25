@@ -1,7 +1,8 @@
 import io
-import numpy as np
+
 import cv2
-from fastapi import FastAPI, UploadFile, File
+import numpy as np
+from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import StreamingResponse
 from ultralytics import YOLO
 
@@ -17,13 +18,13 @@ async def predict_caries(file: UploadFile = File(...)):
     request_object_content = await file.read()
     img_array = np.frombuffer(request_object_content, dtype=np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    
+
     # 2. YOLOv8 Instance Segmentation 추론
     results = model(img, imgsz=960, conf=0.25)
-    
+
     # 3. 마킹 오버레이 이미지 생성
     annotated_img = results[0].plot()
-    
+
     # 4. 이미지 스트림 반환
     _, encoded_img = cv2.imencode(".jpg", annotated_img)
     return StreamingResponse(io.BytesIO(encoded_img.tobytes()), media_type="image/jpeg")

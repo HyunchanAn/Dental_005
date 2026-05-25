@@ -2,11 +2,12 @@
 __author__ = 'Roman Solovyev (ZFTurbo), AlphaChip'
 
 
+import argparse
 import glob
 import os
+
 import cv2
 import numpy as np
-import argparse
 
 
 def load_yolo_annotations(annotation_file, image_width, image_height):
