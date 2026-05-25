@@ -17,3 +17,9 @@
 
 [2026-05-25] README.md 문서 작성
 - 프로젝트 개요 및 실드(배지) 추가 작성 (이모티콘 제외 원칙 준수).
+
+[2026-05-25] 코드 품질 및 인프라 표준화 작업
+- pyproject.toml 및 pre-commit 환경 구성 완료.
+- GitHub Actions (python-ci.yml) 파이프라인 추가.
+- docs/ARCHITECTURE.md 구조화 및 다이어그램 추가.
+- 재현성을 위해 README.md에 가중치 파일 구글 드라이브 링크 업데이트.
