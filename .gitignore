@@ -1,9 +1,9 @@
 data/
-*.pt
+
 *.jpg
 __pycache__/
 .streamlit/
 .env
 
-weights/
+
 sample_outputs/
