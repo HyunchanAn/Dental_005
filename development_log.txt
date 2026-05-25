@@ -34,3 +34,6 @@
 - 분석 결과 마킹 이미지(*.jpg)들을 sample_outputs/ 디렉터리로 이동.
 - app.py, streamlit_app.py, benchmark.py 파일 내 파일 경로 업데이트 완료.
 - README.md의 모델 다운로드 안내 경로 수정.
+
+[2026-05-25] README.md에 출처 및 데이터셋 명시
+- 연구 윤리 준수 및 원작자 크레딧을 위해 원본 리포지토리(ZFTurbo/AlphaDent)와 Kaggle 데이터셋 링크를 README.md 하단에 Acknowledgements 섹션으로 추가함.
