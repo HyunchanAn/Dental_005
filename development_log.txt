@@ -50,3 +50,7 @@
 - 조치 내용: .gitignore 파일에서 weights/ 및 *.pt 예외 규칙을 제거하고, git lfs track "*.pt" 명령어로 LFS 추적을 시작함.
 - 대용량 파일(.pt) 3개를 커밋하여 GitHub 저장소에 푸시(Push)함.
 - 이후 Streamlit Cloud에서 다시 배포/재부팅 시 정상적으로 모델을 불러와 작동할 예정임.
+
+[2026-05-26] 프로젝트명 표기 일괄 수정 (AlphaDent -> Caries Detection from Photo)
+- README.md 및 Streamlit UI 화면에서 'AlphaDent' 명칭을 프로젝트 이름인 'Caries Detection from Photo'로 변경함.
+- 원작자를 명시하는 Acknowledgements(참조) 섹션에만 'AlphaDent' 명칭을 남겨두어 출처 표기 의무를 준수함.
