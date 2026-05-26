@@ -1,8 +1,8 @@
 ![Status](https://img.shields.io/badge/Status-v1.0%20Release-brightgreen) ![Python](https://img.shields.io/badge/Python-3.12%2B-blue) ![Backend](https://img.shields.io/badge/Backend-YOLOv8-red) ![UI](https://img.shields.io/badge/UI-Streamlit-orange) ![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD%20Pipeline-passing-brightgreen?logo=github)
 
-# AlphaDent AI
+# Caries Detection from Photo
 
-AlphaDent AI is an automated dental caries detection and diagnosis assistance system based on YOLOv8 instance segmentation.
+Caries Detection from Photo is an automated dental caries detection and diagnosis assistance system based on YOLOv8 instance segmentation.
 
 ## Features
 
@@ -17,8 +17,8 @@ AlphaDent AI is an automated dental caries detection and diagnosis assistance sy
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/USERNAME/AlphaDent.git
-cd AlphaDent
+git clone https://github.com/HyunchanAn/Caries_Detection_from_Photo.git
+cd Caries_Detection_from_Photo
 pip install -r requirements.txt
 ```
 
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 To prevent the repository from bloating, large files such as the dataset (`data/`), model weights (`*.pt`), and output images (`*.jpg`) are excluded from version control via `.gitignore`.
 
 To reproduce the project and run the inference locally, please download the required `.pt` weight files from the provided Google Drive link and place them in the `weights/` directory of the project:
-- [Google Drive: AlphaDent Model Weights](https://drive.google.com/drive/folders/1KnM2z4ssN3THdYu2qqrDZ1JkbAmBbeiw?usp=sharing)
+- [Google Drive: Model Weights](https://drive.google.com/drive/folders/1KnM2z4ssN3THdYu2qqrDZ1JkbAmBbeiw?usp=sharing)
 
 ## Usage
 
@@ -45,7 +45,7 @@ Simply connect the repository to your Streamlit Cloud account to host the applic
 
 ## Architecture & Logic
 
-The system utilizes YOLOv8 weights (e.g., `weights/yolov8x_AlphaDent_9_classes_960px.pt`) pre-loaded into the global context for low-latency inference. 
+The system utilizes YOLOv8 weights (e.g., `weights/yolov8x_..._9_classes_960px.pt`) pre-loaded into the global context for low-latency inference. 
 Prediction outputs are intercepted and converted into Plotly scatter plots (polygons) overlaid on the original image, allowing dynamic interaction.
 
 ## Acknowledgements

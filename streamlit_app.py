@@ -7,9 +7,9 @@ from PIL import Image
 from ultralytics import YOLO
 
 # 페이지 설정
-st.set_page_config(page_title="AlphaDent AI", page_icon="🦷", layout="wide")
+st.set_page_config(page_title="Caries Detection from Photo", page_icon="🦷", layout="wide")
 
-st.title("🦷 AlphaDent: AI 기반 치아 우식증 진단 보조 시스템")
+st.title("🦷 Caries Detection from Photo: AI 기반 치아 우식증 진단 보조 시스템")
 st.markdown("입안 사진을 업로드하면 인공지능이 충치(Caries) 부위를 자동으로 분석해줍니다.")
 
 # 모델 로드 (캐싱하여 속도 최적화)
