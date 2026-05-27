@@ -54,3 +54,7 @@
 [2026-05-26] 프로젝트명 표기 일괄 수정 (AlphaDent -> Caries Detection from Photo)
 - README.md 및 Streamlit UI 화면에서 'AlphaDent' 명칭을 프로젝트 이름인 'Caries Detection from Photo'로 변경함.
 - 원작자를 명시하는 Acknowledgements(참조) 섹션에만 'AlphaDent' 명칭을 남겨두어 출처 표기 의무를 준수함.
+
+[2026-05-28] README 문서 한글화 및 이슈 정리
+- README.md 문서를 한글로 번역함 (이모티콘 제외 규칙 준수).
+- Streamlit 환경 모델 파일 누락 이슈(Issue #1)가 Git LFS 적용을 통해 해결되었으므로, 해당 이슈를 종결(Close) 처리함.
