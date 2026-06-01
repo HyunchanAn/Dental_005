@@ -83,3 +83,6 @@ sequenceDiagram
 - 데이터셋: [AlphaDent Dataset (Kaggle)](https://www.kaggle.com/competitions/alpha-dent/data)
 
 코드베이스는 대화형 Streamlit 웹 인터페이스를 통해 리팩토링, 패키징 및 확장되었으나 핵심 YOLOv8 가중치 및 원시 데이터셋은 참조된 저장소에서 가져왔습니다.
+
+## 향후 연구 (Future Work)
+- [Phase-Field 기반 분할 향상 및 안정성 연구](docs/Phase_Field_Enhancement.md)
