@@ -43,6 +43,34 @@ streamlit run streamlit_app.py
 이 저장소는 Streamlit Cloud에 원활하게 배포할 수 있도록 구성되어 있습니다.
 저장소를 Streamlit Cloud 계정에 연결하기만 하면 애플리케이션을 온라인으로 호스팅할 수 있습니다.
 
+## Technical Architecture & Workflow
+
+### Architecture Diagram
+```mermaid
+graph TD
+    A[Raw Clinical Photo] --> B[Streamlit UI]
+    B --> C[YOLOv8 Instance Segmentation]
+    C --> D[4-class / 9-class Model Inference]
+    D --> E[G.V. Black Caries Classification]
+    E --> F[Plotly Interactive Mask Overlay]
+    F --> G[Diagnosis Result Display]
+```
+
+### Sequence Diagram
+```mermaid
+sequenceDiagram
+    participant User
+    participant Streamlit
+    participant YOLOv8 Model
+    
+    User->>Streamlit: Upload Dental Image
+    Streamlit->>YOLOv8 Model: Request Inference (Image)
+    YOLOv8 Model->>YOLOv8 Model: Perform Instance Segmentation
+    YOLOv8 Model-->>Streamlit: Return Polygon Masks & Classes
+    Streamlit->>Streamlit: Generate Plotly Overlay
+    Streamlit-->>User: Display Interactive Results
+```
+
 ## 아키텍처 및 로직
 
 이 시스템은 짧은 지연 시간의 추론을 위해 전역 컨텍스트에 미리 로드된 YOLOv8 가중치(예: `weights/yolov8x_..._9_classes_960px.pt`)를 활용합니다.
