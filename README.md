@@ -48,12 +48,12 @@ streamlit run streamlit_app.py
 ### Architecture Diagram
 ```mermaid
 graph TD
-    A[Raw Clinical Photo] --> B[Streamlit UI]
-    B --> C[YOLOv8 Instance Segmentation]
-    C --> D[4-class / 9-class Model Inference]
-    D --> E[G.V. Black Caries Classification]
-    E --> F[Plotly Interactive Mask Overlay]
-    F --> G[Diagnosis Result Display]
+    A["Raw Clinical Photo"] --> B["Streamlit UI"]
+    B --> C["YOLOv8 Instance Segmentation"]
+    C --> D["4-class / 9-class Model Inference"]
+    D --> E["G.V. Black Caries Classification"]
+    E --> F["Plotly Interactive Mask Overlay"]
+    F --> G["Diagnosis Result Display"]
 ```
 
 ### Sequence Diagram
