@@ -4,3 +4,6 @@ streamlit
 opencv-python-headless
 Pillow
 plotly
+fastapi
+uvicorn
+python-multipart

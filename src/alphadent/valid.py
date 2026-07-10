@@ -1,18 +1,18 @@
 # coding: utf-8
-__author__ = 'ZFTurbo: https://github.com/ZFTurbo'
+__author__ = "ZFTurbo: https://github.com/ZFTurbo"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import os
 
     gpu_use = "0"
-    print('GPU use: {}'.format(gpu_use))
+    print("GPU use: {}".format(gpu_use))
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
 
 import os
 
-os.environ['WANDB_DISABLED'] = 'true'
+os.environ["WANDB_DISABLED"] = "true"
 
 import argparse
 
@@ -26,17 +26,19 @@ def valid_seg_yolo(args):
 
     metrics = model.val(
         data=args.dataset_config,
-        project='yolo_seg_x_proj_{}'.format(args.image_size),
+        project="yolo_seg_x_proj_{}".format(args.image_size),
         imgsz=args.image_size,
         batch=1,
         iou=args.iou,
         conf=args.conf,
         half=True,
-        save_json=True,
-        save_txt=True,
-        save_conf=True,
-        # save_hybrid=True,
-        plots=True,
+        save_json=False,
+        save_txt=False,
+        save_conf=False,
+        device=gpu_use,
+        retina_masks=False,
+        # save_hybrid=False,
+        plots=False,
     )
     print(metrics)
     print(metrics.box.map)  # map50-95
@@ -45,49 +47,29 @@ def valid_seg_yolo(args):
     print(metrics.box.maps)  # a list contains map50-95 of each category
 
 
-if __name__ == '__main__':
-    print('Torch: {} Cuda is available: {}'.format(torch.__version__, torch.cuda.is_available()))
-    code_path = os.path.dirname(os.path.abspath(__file__)) + '/'
+if __name__ == "__main__":
+    print("Torch: {} Cuda is available: {}".format(torch.__version__, torch.cuda.is_available()))
+    code_path = os.path.dirname(os.path.abspath(__file__)) + "/"
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--dataset_config",
         type=str,
-        default=code_path + 'AlphaDent/yolo_seg_train.yaml',
-        help="Path to yolo_seg_train.yaml for AlphaDent dataset"
+        default=code_path + "AlphaDent/yolo_seg_train.yaml",
+        help="Path to yolo_seg_train.yaml for AlphaDent dataset",
     )
     parser.add_argument(
         "--weights",
         type=str,
-        default=code_path + 'weights/yolov8x_AlphaDent_9_classes_640px.pt',
-        help="Path to file with weights (.pt)"
+        default=code_path + "weights/yolov8x_AlphaDent_9_classes_640px.pt",
+        help="Path to file with weights (.pt)",
     )
-    parser.add_argument(
-        "--epochs",
-        type=int,
-        default=100,
-        help="Number of epochs to train"
-    )
-    parser.add_argument(
-        "--image_size",
-        type=int,
-        default=640,
-        help="Image size in pixels for model input"
-    )
-    parser.add_argument(
-        "--iou",
-        type=int,
-        default=0.5,
-        help="Intersection over Union for NMS"
-    )
-    parser.add_argument(
-        "--conf",
-        type=int,
-        default=0.001,
-        help="Save all boxes with confidence larger than this value"
-    )
+    parser.add_argument("--epochs", type=int, default=100, help="Number of epochs to train")
+    parser.add_argument("--image_size", type=int, default=640, help="Image size in pixels for model input")
+    parser.add_argument("--iou", type=int, default=0.5, help="Intersection over Union for NMS")
+    parser.add_argument("--conf", type=int, default=0.001, help="Save all boxes with confidence larger than this value")
 
     args = parser.parse_args()
-    print('Input arguments:', args)
+    print("Input arguments:", args)
 
     valid_seg_yolo(args)

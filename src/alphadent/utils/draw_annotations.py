@@ -1,5 +1,5 @@
 # coding: utf-8
-__author__ = 'Roman Solovyev (ZFTurbo), AlphaChip'
+__author__ = "Roman Solovyev (ZFTurbo), AlphaChip"
 
 
 import argparse
@@ -71,7 +71,7 @@ def visualize_yolo_instance_segmentation(store_folder, image_path, annotation_fi
         (255, 128, 0),  # Orange
         (128, 0, 255),  # Purple
         (0, 255, 128),  # Spring Green / Teal
-        (128, 255, 0)  # Chartreuse
+        (128, 255, 0),  # Chartreuse
     ]
 
     for ann in annotations:
@@ -85,7 +85,9 @@ def visualize_yolo_instance_segmentation(store_folder, image_path, annotation_fi
         cv2.polylines(image, [mask_points], isClosed=True, color=colors[class_id % 10], thickness=10)
 
         # Add text with the class
-        cv2.putText(image, f"Class {class_id}", (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 5.0, colors[class_id % 10], 10)
+        cv2.putText(
+            image, f"Class {class_id}", (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 5.0, colors[class_id % 10], 10
+        )
 
     # Display the image
     cv2.imwrite(store_folder + os.path.basename(image_path), image)
@@ -103,20 +105,20 @@ if __name__ == "__main__":
         "--output_path",
         type=str,
         help="Path to directory to store images with visualized annotations",
-        required = True,
+        required=True,
     )
     args = parser.parse_args()
-    print('Input arguments:', args)
+    print("Input arguments:", args)
     os.makedirs(args.output_path, exist_ok=True)
 
-    images = glob.glob(args.input_path + '/images/train/*.jpg')
+    images = glob.glob(args.input_path + "/images/train/*.jpg")
     labels = []
     for img_path in images:
-        lbl_path = args.input_path + '/labels/train/' + os.path.basename(img_path)[:-4] + '.txt'
+        lbl_path = args.input_path + "/labels/train/" + os.path.basename(img_path)[:-4] + ".txt"
         labels.append(lbl_path)
 
     for i in range(len(images)):
-        image_path = images[i] # Path to the image
+        image_path = images[i]  # Path to the image
         annotation_file = labels[i]  # Path to the YOLO annotation file (instance segmentation)
         print(annotation_file)
         print(image_path)

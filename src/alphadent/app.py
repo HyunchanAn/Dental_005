@@ -18,6 +18,7 @@ else:
     model = None
     print(f"Warning: {weights_path} not found. Running without model.")
 
+
 @app.post("/predict")
 async def predict_caries(file: UploadFile = File(...)):
     # 1. 이미지 로드 및 전처리
@@ -35,6 +36,8 @@ async def predict_caries(file: UploadFile = File(...)):
     _, encoded_img = cv2.imencode(".jpg", annotated_img)
     return StreamingResponse(io.BytesIO(encoded_img.tobytes()), media_type="image/jpeg")
 
+
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
