@@ -12,11 +12,11 @@ app = FastAPI(title="Caries Detection API")
 # 전역 컨텍스트에 모델 로드 (Inference 속도 최적화)
 # 여기서는 9클래스 960px 모델을 기본으로 사용합니다.
 weights_path = "weights/yolov8x_AlphaDent_9_classes_960px.pt"
-if os.path.exists(weights_path):
+if os.path.exists(weights_path) and os.path.getsize(weights_path) > 1024:
     model = YOLO(weights_path)
 else:
     model = None
-    print(f"Warning: {weights_path} not found. Running without model.")
+    print(f"Warning: {weights_path} not found or is an LFS pointer. Running without model.")
 
 
 @app.post("/predict")
