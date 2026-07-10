@@ -1,12 +1,14 @@
 ![Status](https://img.shields.io/badge/Status-v1.0%20Release-brightgreen) ![Python](https://img.shields.io/badge/Python-3.12%2B-blue) ![Backend](https://img.shields.io/badge/Backend-YOLOv8-red) ![UI](https://img.shields.io/badge/UI-Streamlit-orange) ![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD%20Pipeline-passing-brightgreen?logo=github)
 
+    
+
 # 사진을 통한 치아 우식증 탐지 (Caries Detection from Photo)
 
 사진을 통한 치아 우식증 탐지는 YOLOv8 인스턴스 분할을 기반으로 한 자동화된 치아 우식증 탐지 및 진단 보조 시스템입니다.
 
+## 설치 및 실행 방법
 
-
-## 📥 Dataset & Model Checkpoints Setup
+### Dataset & Model Checkpoints Setup
 이 프로젝트는 대용량 데이터셋과 사전 학습된 모델 가중치(Checkpoints)가 필요합니다. 
 (GitHub에는 소스코드만 올라가 있습니다.)
 
@@ -17,7 +19,6 @@
    ```
 2. **주의사항 (`.env` 파일):** 
    이 프로젝트를 온전히 실행하기 위해서는 로컬 환경변수나 API 키가 포함된 `.env` 파일이 필요할 수 있습니다. 클론해서 사용하실 분은 레포지토리 주인에게 별도로 연락하여 `.env` 파일을 요청해 주시기 바랍니다.
-
 
 ## 기능
 
@@ -58,7 +59,7 @@ streamlit run streamlit_app.py
 이 저장소는 Streamlit Cloud에 원활하게 배포할 수 있도록 구성되어 있습니다.
 저장소를 Streamlit Cloud 계정에 연결하기만 하면 애플리케이션을 온라인으로 호스팅할 수 있습니다.
 
-## Technical Architecture & Workflow
+## 개요
 
 ### Architecture Diagram
 ```mermaid
