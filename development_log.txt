@@ -64,3 +64,9 @@
 
 2026-06-02 05:51:09
 - 이슈 #2 해결: Phase-Field 기반 성능 향상 연구 방향성 기획 문서 작성
+
+## 2026-07-10
+- alphadent 패키지 의존성 충돌 문제(>=3.12 강제)를 pyproject.toml 수정(>=3.11)으로 해결하여 로컬 설치 완료함.
+- dataset.yaml 내 상대 경로 참조 오류를 절대 경로로 수정하여 데이터 로드 오류 수정함.
+- YOLOv8x-seg 검증 시 OOM 문제 방어를 위해 PYTORCH_CUDA_ALLOC_CONF 적용 및 image_size=320, device='cpu' 전환 등 다방면으로 시도했으나, 원본 이미지의 극고해상도로 인한 마스크 보간(F.interpolate) OOM 및 CPU 처리 시간(8시간 이상) 병목 한계 확인.
+- 이에 따라 005 모델 벤치마크 평가를 중단하고 한계점 및 추후 개선 방안을 담은 E2E Validation Report(reports_archive)를 작성 완료함.
