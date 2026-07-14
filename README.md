@@ -60,6 +60,8 @@ streamlit run streamlit_app.py
 저장소를 Streamlit Cloud 계정에 연결하기만 하면 애플리케이션을 온라인으로 호스팅할 수 있습니다.
 
 ## 개요
+> **[학습 환경 사양]** 실질적 모델 학습은 **RTX 5080 + 라이젠9-6 9900x** 환경에서 진행되었습니다.
+
 
 ### Architecture Diagram
 ```mermaid
