@@ -8,36 +8,12 @@
 - 9-class (960px) Latency: 151.02 ms
 - 4-class (960px) Latency: 144.32 ms
 
-## 2026-05-25 Streamlit UI ���� �� ������ �ֽ�ȭ
-- requirements.txt�� streamlit cloud ����(Linux ȯ��)�� ���� opencv-python-headless ������ ������.
-- streamlit_app.py ���� (����� ��û�� ���� ���ǳʸ� '�����ϴ� ��...'���� ����)
 
-## 2026-05-25 Streamlit UI �׽�Ʈ �Ϸ� �� �ڵ� Ŀ��
-- Plotly ����� ���콺 ���� UI ���� �� ���̾ƿ� ���� �Ϸ�.
-- ���� ������ ���� �ڵ� Ŀ�� �� Ǫ�� ���� (�����ͼ� �� ����ġ ������ ����).
 
-## 2026-05-25 README.md ���� �ۼ�
-- ������Ʈ ���� �� �ǵ�(����) �߰� �ۼ� (�̸�Ƽ�� ���� ��Ģ �ؼ�).
 
-## 2026-05-25 �ڵ� ǰ�� �� ������ ǥ��ȭ �۾�
-- pyproject.toml �� pre-commit ȯ�� ���� �Ϸ�.
-- GitHub Actions (python-ci.yml) ���������� �߰�.
-- docs/ARCHITECTURE.md ����ȭ �� ���̾�׷� �߰�.
-- �������� ���� README.md�� ����ġ ���� ���� ����̺� ��ũ ������Ʈ.
 
-## 2026-05-25 ��Ű��ȭ �� ��Ŀ����¡ �Ϸ�
-- CI/CD ���� ���� �ڵ� �Ƚ� �� ���� ���� ����.
-- src/alphadent/ ����� ���� ���̽� ���̺귯�� ������ ���� �Ϸ�.
-- Dockerfile �� .dockerignore �ۼ��Ͽ� ���� �غ� ��ħ.
 
-## 2026-05-25 ��Ʈ ���͸� ���� �� ���� ����ȭ
-- ��Ʈ ��ο� �����ϴ� ��뷮 ����ġ ����(*.pt)���� weights/ ���͸��� �̵�.
-- �м� ��� ��ŷ �̹���(*.jpg)���� sample_outputs/ ���͸��� �̵�.
-- app.py, streamlit_app.py, benchmark.py ���� �� ���� ��� ������Ʈ �Ϸ�.
-- README.md�� �� �ٿ�ε� �ȳ� ��� ����.
 
-## 2026-05-25 README.md�� ��ó �� �����ͼ� ����
-- ���� ���� �ؼ� �� ������ ũ������ ���� ���� �������丮(ZFTurbo/AlphaDent)�� Kaggle �����ͼ� ��ũ�� README.md �ϴܿ� Acknowledgements �������� �߰���.
 
 ## 2026-05-26 Streamlit Cloud 패키지 의존성 오류(libglib2.0-0, libffi7) 해결
 - 오류 원인: Streamlit Cloud의 OS 환경 업데이트(Debian 12) 및 기존 apt 캐시 충돌.
