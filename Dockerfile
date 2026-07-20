@@ -2,6 +2,7 @@ FROM python:3.12-slim
 
 # OS 패키지 설치 (OpenCV 구동 등 필수 패키지)
 RUN apt-get update && apt-get install -y \
+    git \
     build-essential \
     libglib2.0-0 \
     libsm6 \
