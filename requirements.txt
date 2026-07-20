@@ -4,3 +4,4 @@ streamlit
 opencv-python-headless
 Pillow
 plotly
+git+https://github.com/HyunchanAn/Dental_Core.git@master
