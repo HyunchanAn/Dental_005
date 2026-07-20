@@ -7,3 +7,6 @@ __pycache__/
 
 
 sample_outputs/
+*.pt
+*.pth
+*.onnx
