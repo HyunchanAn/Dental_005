@@ -35,4 +35,4 @@ jobs:
 
     - name: Test with pytest
       run: |
-        PYTHONPATH=${{ github.workspace }} pytest Dental_000/tests/tests_005
+        PYTHONPATH=${{ github.workspace }} pytest .
