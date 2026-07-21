@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # 소스코드 복사
 COPY src/ ./src/
 COPY streamlit_app.py ./
-COPY tests/ ./tests/
+# COPY tests/ ./tests/
 # Note: 모델 가중치(*.pt)와 데이터셋은 이미지 크기를 위해 .dockerignore로 제외됩니다.
 # 컨테이너 실행 시 볼륨 마운트를 권장합니다.
 
