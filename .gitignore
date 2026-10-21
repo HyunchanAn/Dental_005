@@ -1,10 +1,16 @@
 data/
+yolo_seg_x_proj_*/
+predictions.json
 
 *.jpg
 __pycache__/
+*.py[cod]
+*.pyc
+*.egg-info/
+dist/
+build/
 .streamlit/
 .env
-
 
 sample_outputs/
 *.pt

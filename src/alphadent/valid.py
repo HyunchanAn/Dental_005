@@ -1,28 +1,25 @@
 # coding: utf-8
 __author__ = "ZFTurbo: https://github.com/ZFTurbo"
 
-
-if __name__ == "__main__":
-    import os
-
-    gpu_use = "0"
-    print("GPU use: {}".format(gpu_use))
-    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
-
-import os
-
-os.environ["WANDB_DISABLED"] = "true"
-
 import argparse
-
+import os
 import torch
 from ultralytics import YOLO
 
+os.environ["WANDB_DISABLED"] = "true"
+
+
+def _resolve_yolo_device():
+    env_dev = os.getenv("DEVICE", "auto").strip().lower()
+    if env_dev and env_dev != "auto":
+        return env_dev
+    return "0" if torch.cuda.is_available() else "cpu"
+
 
 def valid_seg_yolo(args):
-    # Load a model
     model = YOLO(args.weights)
+    device = _resolve_yolo_device()
+    use_half = device != "cpu"
 
     metrics = model.val(
         data=args.dataset_config,
@@ -31,13 +28,12 @@ def valid_seg_yolo(args):
         batch=1,
         iou=args.iou,
         conf=args.conf,
-        half=True,
+        half=use_half,
         save_json=False,
         save_txt=False,
         save_conf=False,
-        device=gpu_use,
+        device=device,
         retina_masks=False,
-        # save_hybrid=False,
         plots=False,
     )
     print(metrics)
@@ -48,6 +44,10 @@ def valid_seg_yolo(args):
 
 
 if __name__ == "__main__":
+    if torch.cuda.is_available():
+        gpu_use = os.getenv("CUDA_VISIBLE_DEVICES", "0")
+        os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+        os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
     print("Torch: {} Cuda is available: {}".format(torch.__version__, torch.cuda.is_available()))
     code_path = os.path.dirname(os.path.abspath(__file__)) + "/"
 
@@ -66,8 +66,8 @@ if __name__ == "__main__":
     )
     parser.add_argument("--epochs", type=int, default=100, help="Number of epochs to train")
     parser.add_argument("--image_size", type=int, default=640, help="Image size in pixels for model input")
-    parser.add_argument("--iou", type=int, default=0.5, help="Intersection over Union for NMS")
-    parser.add_argument("--conf", type=int, default=0.001, help="Save all boxes with confidence larger than this value")
+    parser.add_argument("--iou", type=float, default=0.5, help="Intersection over Union for NMS")
+    parser.add_argument("--conf", type=float, default=0.001, help="Save all boxes with confidence larger than this value")
 
     args = parser.parse_args()
     print("Input arguments:", args)

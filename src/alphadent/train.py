@@ -1,29 +1,25 @@
 # coding: utf-8
 __author__ = "ZFTurbo: https://github.com/ZFTurbo"
 
-
-import os
-
-os.environ["WANDB_DISABLED"] = "true"
-
-if __name__ == "__main__":
-    gpu_use = "0"
-    print("GPU use: {}".format(gpu_use))
-    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
-
-
 import argparse
-
+import os
 import torch
 from ultralytics import YOLO
 
+os.environ["WANDB_DISABLED"] = "true"
+
+
+def _resolve_yolo_device():
+    env_dev = os.getenv("DEVICE", "auto").strip().lower()
+    if env_dev and env_dev != "auto":
+        return env_dev
+    return [0] if torch.cuda.is_available() else "cpu"
+
 
 def train_seg_yolo(args):
-    # Load a model
-    model = YOLO("yolov8x-seg.pt")  # load a pretrained model (recommended for training)
+    model = YOLO("yolov8x-seg.pt")
+    device = _resolve_yolo_device()
 
-    # Train the model
     results = model.train(
         data=args.dataset_config,
         epochs=args.epochs,
@@ -32,13 +28,17 @@ def train_seg_yolo(args):
         project="yolo_seg_x_proj_{}".format(args.image_size),
         deterministic=False,
         plots=True,
-        device=[0],
+        device=device,
     )
 
     print(results)
 
 
 if __name__ == "__main__":
+    if torch.cuda.is_available():
+        gpu_use = os.getenv("CUDA_VISIBLE_DEVICES", "0")
+        os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+        os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(gpu_use)
     print("Torch: {} Cuda is available: {}".format(torch.__version__, torch.cuda.is_available()))
     code_path = os.path.dirname(os.path.abspath(__file__)) + "/"
 
