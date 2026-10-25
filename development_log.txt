@@ -1,49 +1,58 @@
-## 2026-05-25
-17:58:00
+2026-05-25
+- [17:58:00]
 - 프로젝트 초기 설정: E:\Github\AlphaDent 원본 저장소에서 필요한 스크립트(inference.py, train.py, valid.py, utils 폴더) 및 의존성 파일(requirements.txt)을 작업 디렉터리로 복사 완료.
 - 데이터셋 정리: 데이터 압축 해제 후 `data/raw` 경로에 구조화 배치. 원본 압축 파일은 `data/archives`로 분리 보관.
 - GPU 환경: RTX 5080 (16GB) 사용을 위한 PyTorch 및 YOLOv8(ultralytics) 설정 필요.
-
-[Benchmark Results]
+- [Benchmark Results]
 - 9-class (960px) Latency: 151.02 ms
 - 4-class (960px) Latency: 144.32 ms
 
-
-
-
-
-
-
-
-## 2026-05-26 Streamlit Cloud 패키지 의존성 오류(libglib2.0-0, libffi7) 해결
+2026-05-26
+- [Streamlit Cloud 패키지 의존성 오류(libglib2.0-0, libffi7) 해결]
 - 오류 원인: Streamlit Cloud의 OS 환경 업데이트(Debian 12) 및 기존 apt 캐시 충돌.
 - 해결 방안: 요구사항(requirements.txt)은 이미 opencv-python-headless로 설정되어 있고 packages.txt는 없으므로, Streamlit Cloud 환경 자체 캐시 삭제 및 재부팅(Reboot) 안내.
-
-## 2026-05-26 Streamlit Cloud 모델 가중치 파일 누락 오류(FileNotFoundError) 확인
+- [Streamlit Cloud 모델 가중치 파일 누락 오류(FileNotFoundError) 확인]
 - 오류 원인: 프로젝트의 .gitignore 파일에 weights/ 폴더와 *.pt 파일이 예외 처리되어 있어 GitHub 저장소에 업로드되지 않음. Streamlit Cloud가 코드를 가져갈 때 가중치 파일이 없어 발생한 문제.
 - 조치 계획: 각 가중치 파일의 크기가 144MB로 GitHub 기본 용량 제한(100MB)을 초과하므로, Git LFS(Large File Storage)를 통해 업로드할 수 있도록 설정 변경 및 사용자 확인 요청.
-
-## 2026-05-26 Git LFS 설정 및 모델 가중치 업로드 진행
+- [Git LFS 설정 및 모델 가중치 업로드 진행]
 - 조치 내용: .gitignore 파일에서 weights/ 및 *.pt 예외 규칙을 제거하고, git lfs track "*.pt" 명령어로 LFS 추적을 시작함.
 - 대용량 파일(.pt) 3개를 커밋하여 GitHub 저장소에 푸시(Push)함.
 - 이후 Streamlit Cloud에서 다시 배포/재부팅 시 정상적으로 모델을 불러와 작동할 예정임.
-
-## 2026-05-26 프로젝트명 표기 일괄 수정 (AlphaDent -> Caries Detection from Photo)
+- [프로젝트명 표기 일괄 수정 (AlphaDent -> Caries Detection from Photo)]
 - README.md 및 Streamlit UI 화면에서 'AlphaDent' 명칭을 프로젝트 이름인 'Caries Detection from Photo'로 변경함.
 - 원작자를 명시하는 Acknowledgements(참조) 섹션에만 'AlphaDent' 명칭을 남겨두어 출처 표기 의무를 준수함.
 
-## 2026-05-28 README 문서 한글화 및 이슈 정리
+2026-05-28
+- [README 문서 한글화 및 이슈 정리]
 - README.md 문서를 한글로 번역함 (이모티콘 제외 규칙 준수).
 - Streamlit 환경 모델 파일 누락 이슈(Issue #1)가 Git LFS 적용을 통해 해결되었으므로, 해당 이슈를 종결(Close) 처리함.
 
-2026-06-02 00:46:57
+2026-06-02
+- [00:46:57]
 - README.md 아키텍처 다이어그램 Mermaid 문법 오류(괄호 등 특수문자 따옴표 처리) 수정
-
-2026-06-02 05:51:09
+- [05:51:09]
 - 이슈 #2 해결: Phase-Field 기반 성능 향상 연구 방향성 기획 문서 작성
 
-## 2026-07-10
+2026-07-10
 - alphadent 패키지 의존성 충돌 문제(>=3.12 강제)를 pyproject.toml 수정(>=3.11)으로 해결하여 로컬 설치 완료함.
 - dataset.yaml 내 상대 경로 참조 오류를 절대 경로로 수정하여 데이터 로드 오류 수정함.
 - YOLOv8x-seg 검증 시 OOM 문제 방어를 위해 PYTORCH_CUDA_ALLOC_CONF 적용 및 image_size=320, device='cpu' 전환 등 다방면으로 시도했으나, 원본 이미지의 극고해상도로 인한 마스크 보간(F.interpolate) OOM 및 CPU 처리 시간(8시간 이상) 병목 한계 확인.
 - 이에 따라 005 모델 벤치마크 평가를 중단하고 한계점 및 추후 개선 방안을 담은 E2E Validation Report(reports_archive)를 작성 완료함.
+
+2026-07-21
+- 중앙 재사용 CI 워크플로우 마이그레이션 및 Dockerfile `libgl1` 의존성 업데이트 완료.
+
+2026-08-17
+- 연구 보안 및 저장소 위생 베이스라인 적용 완료.
+
+2026-09-28
+- `Dental_Core` 의존성 브랜치(`@main`) 정렬 완료.
+
+2026-10-20
+- MIT `LICENSE` 파일 및 AlphaDent 데이터셋 출처·이용 조건 고지 추가 완료.
+
+2026-10-21
+- 이슈 #4 해결: `src/alphadent.egg-info`, `yolo_seg_x_proj_640/val3/predictions.json`(4.5MB) 및 Kaggle 대회 파생 라벨 211개 Git 추적 제거, `train.py`·`valid.py`·`inference.py` CUDA/CPU 자동 폴백 적용 완료.
+
+2026-10-25
+- `docs/Phase_Field_Enhancement.md` 공식 종결(`[CLOSED]` / `[PASS]` 완결) 명시 및 개발일지(`development_log.txt`) 표준 양식 통일 완료.
