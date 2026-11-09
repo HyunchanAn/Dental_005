@@ -49,15 +49,15 @@ sequenceDiagram
 
 ### 3. 모델 가중치 (Model Weights on Hugging Face)
 저장소 용량 및 위생 관리를 위해 데이터셋(`data/`), 모델 가중치(`*.pt`), 검증 산출물(`yolo_seg_x_proj_*/`, `predictions.json`) 등은 `.gitignore`를 통해 버전 제어에서 제외됩니다:
+- [Hugging Face Repository (`chemahc94/Dental_005_Model`)](https://huggingface.co/chemahc94/Dental_005_Model)
 - [Hugging Face Repository (`chemahc94/Dental-AI-Models`)](https://huggingface.co/chemahc94/Dental-AI-Models/tree/main/Dental_005)
-- [Google Drive: Model Weights](https://drive.google.com/drive/folders/1KnM2z4ssN3THdYu2qqrDZ1JkbAmBbeiw?usp=sharing)
 
 ---
 
 ## 벤치마크 및 검증 성능
 
 - `YOLOv8x-seg` 다중 해상도(`640px` / `320px`) 인스턴스 분할 파이프라인 및 G.V. Black 4-Class / 9-Class 추론 검증 완료 (`Dental_000/tests/tests_005` 단위 및 통합 테스트 통과).
-- [향후 연구 (Future Work)]: [Phase-Field 기반 분할 향상 및 안정성 연구](docs/Phase_Field_Enhancement.md)
+- [향후 연구 (Future Work)]: [Phase-Field 기반 분할 향상 및 안정성 연구](plans_replies_walkthrough_archive/Phase_Field_Enhancement.md)
 
 ---
 
