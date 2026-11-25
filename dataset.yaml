@@ -1,4 +1,4 @@
-﻿path: c:/Users/chema/Github/Dental_005/data/raw
+﻿path: data/raw
 train: images/train
 val: images/valid
 names:
